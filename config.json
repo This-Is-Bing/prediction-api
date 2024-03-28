@@ -1,0 +1,5 @@
+{
+    "fp_model_path": "./models/fp_model.bin",
+    "mc_model_path": "./models/mc_model.bin",
+    "ml_model_path": "./models/ml_model.bin"
+}

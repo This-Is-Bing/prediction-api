@@ -3,12 +3,20 @@ import pandas as pd
 from xgboost import Booster, DMatrix
 import re
 
+import json
+with open('config.json') as config_file:
+    config = json.load(config_file)
+
+fp_model_path = config['fp_model_path']
+mc_model_path = config['mc_model_path']
+ml_model_path = config['ml_model_path']
+
 booster = Booster()
 
 # FP
 def prediction_fp(date_input):
     try:
-        booster.load_model("file:///Users/bingfeng/Documents/Projects/air_selangor/SIMS/prediction-api/models/fp_model.bin")
+        booster.load_model(fp_model_path)
         pattern = re.compile(r'^\d{4}-\d{2}$')
         if not pattern.match(date_input):
             return('The date input format is invalid.')
@@ -27,7 +35,7 @@ def prediction_fp(date_input):
 # MC
 def prediction_mc(date_input):
     try:
-        booster.load_model("file:///Users/bingfeng/Documents/Projects/air_selangor/SIMS/prediction-api/models/mc_model.bin")
+        booster.load_model(mc_model_path)
         pattern = re.compile(r'^\d{4}-\d{2}$')
         if not pattern.match(date_input):
             return('The date input format is invalid.')
@@ -46,7 +54,7 @@ def prediction_mc(date_input):
 # ML
 def prediction_ml(date_input):
     try:
-        booster.load_model("file:///Users/bingfeng/Documents/Projects/air_selangor/SIMS/prediction-api/models/ml_model.bin")
+        booster.load_model(ml_model_path)
         pattern = re.compile(r'^\d{4}-\d{2}$')
         if not pattern.match(date_input):
             return('The date input format is invalid.')
