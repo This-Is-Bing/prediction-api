@@ -1,0 +1,7 @@
+# /requirements.txt
+
+flask==3.0.2
+pandas == 1.26.4
+xgboost == 2.0.3
+
+# other required dependencies
