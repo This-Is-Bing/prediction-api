@@ -6,7 +6,7 @@ from scripts.model import prediction_fp, prediction_mc, prediction_ml
 app = Flask(__name__)
 
 # Creating Endpoints
-@app.route('/prediction', methods=['GET'])
+@app.route('/', methods=['GET'])
 def hello():
     return jsonify({'message': 'API is working'})
 
