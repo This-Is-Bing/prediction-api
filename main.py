@@ -10,6 +10,7 @@ app = Flask(__name__)
 def hello():
     return jsonify({'message': 'API is working'})
 
+
 # Fp
 @app.route('/prediction/fp', methods=['GET'])
 def fp():

@@ -1,7 +1,4 @@
-# /requirements.txt
-
-Flask==3.0.2
-pandas==1.2.4
-xgboost==2.0.3
-
-# other required dependencies
+Flask==3.0.0; python_version > '3.6'
+Flask==2.3.3; python_version < '3.7'
+gunicorn==20.1.0
+xgboost
