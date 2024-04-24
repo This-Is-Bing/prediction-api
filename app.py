@@ -1,15 +1,15 @@
-# Import libraries
 from flask import Flask, jsonify, request
+from flask_cors import CORS  # Import CORS
 from scripts.model import prediction_fp, prediction_mc, prediction_ml
 
 # Initialize
 app = Flask(__name__)
+CORS(app)  # Apply CORS to the entire app
 
 # Creating Endpoints
 @app.route('/', methods=['GET'])
 def hello():
     return jsonify({'message': 'API is working'})
-
 
 # Fp
 @app.route('/prediction/fp', methods=['GET'])
@@ -32,7 +32,6 @@ def ml():
     result = prediction_ml(param)
     return jsonify({'message': f'{result}'})
 
-
 # Start App
 if __name__ == '__main__':
-    app.run(port=8080,debug=True)
+    app.run(port=8080, debug=True)
